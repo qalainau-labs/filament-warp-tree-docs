@@ -957,6 +957,21 @@ livewire(DepartmentTree::class)->instance()->moveTreeNode((string) $boston->getK
 
 The interface is in English, Japanese, German, French, Spanish, Italian, Brazilian Portuguese, Korean and Chinese (simplified and traditional).
 
+## Static analysis (PHPStan / Larastan)
+The methods this plugin adds to Filament's components with `macro()` (`->warpTree()`, `->warpTreeSum()`) are not declared on the classes, so Larastan reports “Call to an undefined method” for them. The plugin ships a PHPStan extension that tells PHPStan about them, with their real parameters and return types:
+
+- With [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer), there is nothing to do.
+- Without it, add the file to your `phpstan.neon`:
+
+```neon
+includes:
+    - vendor/qalainau/filament-warp-tree/extension.neon
+```
+
+The extension reads the macros that are registered when Larastan boots your app, so it needs [Larastan](https://github.com/larastan/larastan) (plain PHPStan does not boot the app). It also covers the macros your own app adds to Filament components.
+
+The setting methods of the plugin class return the plugin, so `$panel->plugin(FilamentWarpTreePlugin::make()->visibleSubtree(...))` passes analysis as it is (no “expects Filament\Contracts\Plugin” error).
+
 ## Support
 
 Questions before or after buying: [warpui.com/support](https://warpui.com/support?plugin=tree).
