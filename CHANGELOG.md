@@ -2,6 +2,12 @@
 
 All notable changes to `qalainau/filament-warp-tree` are documented here.
 
+## [1.0.2] - 2026-11-17
+
+### Changed
+
+- README: the tree grid on a Warp Table (`->warp()`) needs Warp Table 1.5.0 or later, which shows the first column with its indent and arrow. The note that PHPStan does not know `->warpTree()` was out of date since 1.0.1 (the plugin ships a PHPStan extension) and now links to “Static analysis”.
+
 ## [1.0.1] - 2026-11-16
 
 ### Fixed

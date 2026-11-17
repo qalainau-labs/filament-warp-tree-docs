@@ -552,7 +552,9 @@ How it stays correct:
 
 Not supported with `->warpTree()`: grouping rows (`groups()`), reordering rows by dragging (`reorderable()`, use [`TreePage`](#editing-the-tree) for that), tables without a query (`records()`) and `BelongsToMany` relation managers — in those cases the table is shown as it is, without the tree. Filament's column summaries (`->summarize()`) count every row once, as before.
 
-If you use PHPStan, it doesn't know macros: add `- '#Call to an undefined method Filament\\Tables\\(Table|Columns\\\w+)::warpTree(Sum)?\(\)#'` to `ignoreErrors`.
+With [Warp Table](https://warpui.com/table) (`->warp()`, version 1.5.0 or later), the tree grid works on the canvas table: the first column with its indent and arrow is shown as HTML over the canvas, and totals, indent and outdent work as on Filament's table. With Warp Table 1.4 or earlier, the first column has no arrow; update Warp Table, or turn it off for that table with `->warp(false)`.
+
+For PHPStan and Larastan, `->warpTree()` and `->warpTreeSum()` are known through the extension the plugin ships; see [Static analysis](#static-analysis-phpstan--larastan).
 
 ## Working with the tree in code
 
