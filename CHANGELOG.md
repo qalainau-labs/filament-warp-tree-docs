@@ -2,6 +2,12 @@
 
 All notable changes to `qalainau/filament-warp-tree` are documented here.
 
+## [1.0.3] - 2026-11-17
+
+### Fixed
+
+- **Tree grid**: with a row opened, the count below the table counted the rows opened under it as well (“Showing 1 to 5 of 3 results”, or “11 to 25 of 30” on the second page). It now counts the top level, as the total already did (“Showing 1 to 3 of 3 results”). Display only; on standard tables and on Warp Tables (`->warp()`).
+
 ## [1.0.2] - 2026-11-17
 
 ### Changed
