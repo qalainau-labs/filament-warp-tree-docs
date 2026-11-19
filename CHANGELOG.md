@@ -2,6 +2,14 @@
 
 All notable changes to `qalainau/filament-warp-tree` are documented here.
 
+## [Unreleased]
+
+## [1.0.4] - 2026-11-19
+
+### Fixed
+
+- **Console error `warpTree… is not defined`**: on pages where Livewire re-renders a Tree field inside another Alpine component, the browser console could show `warpTreeSelectTree is not defined` (and the same for the other Tree components) before the component's script had arrived. Empty components are now registered up front, and the real ones replace them as soon as they load. No visible change.
+
 ## [1.0.3] - 2026-11-17
 
 ### Fixed
