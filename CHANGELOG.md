@@ -4,6 +4,12 @@ All notable changes to `qalainau/filament-warp-tree` are documented here.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-22
+
+### Added
+
+- **`$defaultOpenLevel` for the tree page**: `TreePage` (and `TreeWidget`, `TreeRelationManager`) can open the branches down to a level when it is shown, with the same name and meaning as `defaultOpenLevel()` of `SelectTree`, `TreeNavigation` and the tree grid. The default is `0` — only the roots, as before.
+
 ## [1.0.4] - 2026-11-19
 
 ### Fixed

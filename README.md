@@ -823,6 +823,24 @@ class DepartmentTree extends TreePage
 
 Override `getMaxDepth(): ?int` to decide it at run time.
 
+### Opening the branches at first
+
+The tree page opens with the roots only. `$defaultOpenLevel` opens the branches down to a level when the page is shown — the same name and meaning as `defaultOpenLevel()` of `SelectTree`, `TreeNavigation` and the [tree grid](#the-rows-of-a-table-as-a-tree):
+
+```php
+class DepartmentTree extends TreePage
+{
+    protected static string $resource = DepartmentResource::class;
+
+    protected static int $defaultOpenLevel = 2;   // roots and their children are open, so the grandchildren show
+}
+```
+
+- `0` (the default) shows only the roots, as before. `1` opens the roots, so their children show; `2` opens the children too, and so on.
+- A negative number counts as `0`. A level deeper than the tree is simply the whole tree. At most 50 branches are opened this way, so a very large tree still opens fast.
+- It only decides the first view: people can still open and close branches, and *Expand all* and *Collapse all* work as usual.
+- Override `getDefaultOpenLevel(): int` to decide it at run time. `TreeWidget` and `TreeRelationManager` take the same setting.
+
 ### The tree as a widget
 
 `TreeWidget` puts the same tree on a dashboard or any other page. Give it a resource and it takes the query, the form for new items, the labels and the permissions from it (including tenancy and `ScopedToVisibleSubtree`):
