@@ -4,6 +4,12 @@ All notable changes to `qalainau/filament-warp-tree` are documented here.
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-11-26
+
+### Fixed
+
+- **Nested set descendants with the same left value keep a fixed order**: `descendants()` on a nested set now orders by the left column, then the primary key, before its limit, so a table holding several trees (left values repeat) returns the same items every time.
+
 ## [1.1.0] - 2026-11-22
 
 ### Added
