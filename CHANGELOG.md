@@ -2,7 +2,11 @@
 
 All notable changes to `qalainau/filament-warp-tree` are documented here.
 
-## [Unreleased]
+## [1.1.2] - 2026-11-27
+
+### Fixed
+
+- **Saving a window for an item someone else had just deleted did nothing**: with “Rename”, “Edit”, “Move to…”, “Merge into…”, “Delete” or “Add an item under” open (and your own row buttons from `getTreeNodeActions()`), if another person deleted that item — or it moved out of what you may see, or to another team — pressing the button left the window open and nothing happened (row buttons showed a 404). The window now closes with “That item no longer exists. The tree has been reloaded.”, and the branch is reloaded without the item.
 
 ## [1.1.1] - 2026-11-26
 
