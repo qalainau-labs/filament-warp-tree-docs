@@ -2,6 +2,15 @@
 
 All notable changes to `qalainau/filament-warp-tree` are documented here.
 
+## [Unreleased]
+
+## [1.1.3] - 2026-11-28
+
+### Fixed
+
+- **Under heavy load, opening a branch or searching could leave it “Loading…” for good** (tree editor, tree navigation beside a table, SelectTree, CheckboxTree), with an error in the browser console. When the server's reply goes missing, reading branches and search results now asks once more; otherwise the branch closes so you can open it again. Moves (dragging, Alt + arrow keys, dropping table rows on a branch) and node actions are never sent twice: when their reply is missing, the tree reloads the branches instead of showing a success.
+- **Korean texts no longer use the dual-form particles** (`을(를)`, `(으)로`, `은(는)`, `이(가)`): the change log, toasts and messages now quote the name and use a plain “action: ‘A’ → ‘B’” form.
+
 ## [1.1.2] - 2026-11-27
 
 ### Fixed
